@@ -72,7 +72,7 @@ pipelines:
         configuration:
           targetRepository: demo-pipelines
           integrations:
-            - name: art
+            - name: arti
           inputResources:
             - name: dbp_build_info
           outputResources:
