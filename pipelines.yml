@@ -10,8 +10,8 @@ resources:
   - name: dbp_image
     type: Image
     configuration:
-      registry: art                                # <-- replace with your artifactory integration
-      sourceRepository: docker_sample               # <-- required if registry is Artifactory
+      registry: arti                                # <-- replace with your artifactory integration
+      sourceRepository: hello_world               # <-- required if registry is Artifactory
       imageName: flouis1.jfrog-pipelines.com/docker-local/dbp  # < -- replace with your image path and name
       imageTag: latest
       autoPull: true
@@ -45,7 +45,7 @@ pipelines:
           inputResources:
             - name: dbp_repo
           integrations:
-            - name: art                            # <-- replace with your artifactory integration
+            - name: arti                            # <-- replace with your artifactory integration
 
       - name: docker_push
         type: DockerPush
@@ -53,7 +53,7 @@ pipelines:
           affinityGroup: dbp_group
           targetRepository: docker-local
           integrations:
-            - name: art                            # <-- replace with your artifactory integration
+            - name: arti                           # <-- replace with your artifactory integration
           inputSteps:
             - name: docker_build
           outputResources:
